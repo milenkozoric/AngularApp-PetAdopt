@@ -1,0 +1,17 @@
+<div class="container-fluid mt-5 mb-5">
+    <div class="row">
+        <!-------Flitracija i Sortiranje-->
+    </div>
+    <div class="row">
+        <div class="col-lg-4 mt-3 mb-3" *ngFor="let pet of pets">
+            <div class="card">
+                <img [src]="pet.image" alt="">
+                <h3 class="text-center">{{pet.name}} </h3>
+                <p><b>Category:</b> {{pet.category | titlecase}} </p>
+                 <p><b>Size:</b> {{pet.size_kg}} kg </p>
+                <p><b>Sex:</b> {{pet.sex == "m"? "Male" : "Female"}} </p>
+            </div>
+
+        </div>
+    </div>
+</div>

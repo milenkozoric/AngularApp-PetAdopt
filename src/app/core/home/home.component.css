@@ -1,0 +1,13 @@
+img {
+    width: 100%;
+    height: 600px;
+    object-fit: cover;
+}
+h1 {
+    font-weight: bold;
+    text-decoration: underline;
+   font-style: italic;
+}
+ngb-carousel{
+    padding: 10px;
+}
