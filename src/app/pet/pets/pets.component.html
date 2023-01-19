@@ -1,17 +1,58 @@
 <div class="container-fluid mt-5 mb-5">
-    <div class="row">
-        <!-------Flitracija i Sortiranje-->
-    </div>
-    <div class="row">
-        <div class="col-lg-4 mt-3 mb-3" *ngFor="let pet of pets">
-            <div class="card">
-                <img [src]="pet.image" alt="">
-                <h3 class="text-center">{{pet.name}} </h3>
-                <p><b>Category:</b> {{pet.category | titlecase}} </p>
-                 <p><b>Size:</b> {{pet.size_kg}} kg </p>
-                <p><b>Sex:</b> {{pet.sex == "m"? "Male" : "Female"}} </p>
-            </div>
+  <div class="row filterBox">
+    <div class="col-lg-4">
+      <!----Filter Category-->
 
-        </div>
+      <label for="">Category:</label>
+      <select class="form-control mt-1" (change)="onFilterCategory($event)">
+        <option value="">All</option>
+        <option value="cat">Cats</option>
+        <option value="dog">Dogs</option>
+        <option value="other">Other</option>
+      </select>
     </div>
+    <div class="col-lg-4 mt-4">
+        <!----Filter Sex-->
+
+
+      <label for="">Sex:</label> &nbsp;&nbsp;
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="" (change)="onFilterSex($event)">
+        <label class="form-check-label" for="inlineRadio1">Any</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="m" (change)="onFilterSex($event)">
+        <label class="form-check-label" for="inlineRadio2">Male</label>
+      </div>
+      <div class="form-check form-check-inline">
+        <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="f" (change)="onFilterSex($event)">
+        <label class="form-check-label" for="inlineRadio3">Female</label>
+      </div>
+    </div>
+
+
+    <div class="col-lg-4">
+        <!----Sort-->
+
+
+       <label for="">Sort by:</label>
+      <select class="form-control mt-1" (change)="onSort($event)">
+        <option value="">--</option>
+        <option value="name">Name</option>
+        <option value="size_kg">Size</option>
+        
+      </select>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-4 mt-3 mb-3" *ngFor="let pet of pets">
+      <div class="card" [routerLink]="['/pets', pet._id]">
+        <img [src]="pet.image" alt="" />
+        <h3 class="text-center">{{ pet.name }}</h3>
+        <p><b>Category:</b> {{ pet.category | titlecase }}</p>
+        <p><b>Size:</b> {{ pet.size_kg }} kg</p>
+        <p><b>Sex:</b> {{ pet.sex == "m" ? "Male" : "Female" }}</p>
+      </div>
+    </div>
+  </div>
 </div>
