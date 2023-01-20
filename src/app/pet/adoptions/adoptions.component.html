@@ -1,1 +1,27 @@
-<p>adoptions works!</p>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col">
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        
+                        <th scope="col">Pet Id</th>
+                        <th scope="col">Pet Name</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Contact</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor=" let Item of adoptions">
+                        <td>{{Item._id}} </td>
+                        <td>{{Item.petName}} </td>
+                        <td>{{Item.name}} </td>
+                        <td>{{Item.contact}} </td>
+                        <td><button class="btn btn-primary" (click)="onDeleteAdoption(Item._id)">Approve</button> </td>
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
